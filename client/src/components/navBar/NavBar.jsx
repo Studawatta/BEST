@@ -13,7 +13,7 @@ const NavBar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   return (
     <div>
-      <div className="flex bg-black border-b-2 border-white w-[100%] text-white font-bold h-[40px] items-center justify-center fixed z-10">
+      <div className="flex bg-black border-b-2 border-white w-[100%] text-white font-bold h-[50px] items-center justify-center fixed top-0 z-10">
         <div className=" flex  w-[90%] justify-between">
           <div
             className=" cursor-pointer xs:hidden"

@@ -1,12 +1,14 @@
 import React from 'react';
 import NavBar from '../../components/navBar/NavBar';
+import HomeHero from '../../components/homeHero/HomeHero';
+import Footer from '../../components/footer/Footer';
+
 const Home = () => {
   return (
-    <div className=" bg-[url('./assets/imges/homebg.jpg')] h-[1200px] bg-no-repeat bg-fixed bg-cover opacity-90">
+    <div className=" bg-[url('./assets/imges/homebg.jpg')]  w-full bg-no-repeat bg-fixed bg-cover ">
       <NavBar />
-      <div className="bg-red-400 absolute top-[200px] h-[200px] w-[200px] opacity-70 text-white font-bold">
-        fsdfaf
-      </div>
+      <HomeHero />
+      <Footer />
     </div>
   );
 };
