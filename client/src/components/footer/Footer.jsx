@@ -3,18 +3,20 @@ import logo from '../../assets/imges/logo.png';
 
 const Footer = () => {
   return (
-    <div className="bg-[#1a1a1a] h-[150px] w-full flex justify-center items-center">
+    <div className="bg-[#1a1a1a] h-[150px] w-full flex justify-center items-center ">
       <div className=" h-fit w-[90%]">
-        <div className=" w-fit flex items-center justify-center gap-[30px] m-auto">
+        <div className="  w-full flex items-center justify-center gap-[10%] m-auto">
           <img
             src={logo}
             alt=""
-            className="w-[100px] h-[100px]"
+            className="w-[50px] h-[50px] sm:w-[100px] sm:h-[100px]"
           />
-          <span className="text-white cursor-pointer italic">
+          <span className="text-white cursor-pointer italic text-[14px] sm:text-[16px]">
             Privacy Policy
           </span>
-          <span className="text-white italic">All Rights Reserved</span>
+          <span className="text-white italic text-[14px] sm:text-[16px]">
+            All Rights Reserved
+          </span>
         </div>
       </div>
     </div>

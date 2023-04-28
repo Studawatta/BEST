@@ -4,20 +4,21 @@ import { RiDoubleQuotesL } from 'react-icons/ri';
 import { BsArrowRightShort } from 'react-icons/bs';
 
 const BottomLine1 = styled.div`
-  height: 80px;
+  height: 15vw;
   width: 100%;
-  background-color: transparent;
-  border-style: solid;
-  border-width: 0 0 60px 201.5vmin;
-  border-color: rgba(255, 255, 255, 0) rgba(0, 128, 43, 0.6);
-`;
-const BottomLine2 = styled.div`
-  height: 80px;
-  width: 100%;
-  background-color: transparent;
-  border-style: solid;
-  border-width: 60px 201.5vmin 0 0;
-  border-color: transparent rgba(255, 255, 255, 1);
+  background-color: rgba(16, 72, 33, 0.4);
+  margin-bottom: -9vw;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 9vw), 0 100%);
+
+  @media screen and (min-width: 360px) {
+    height: 12vw;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 9vw), 0 100%);
+  }
+  @media screen and (min-width: 640px) {
+    height: 6vw;
+    margin-bottom: -4.5vw;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4.5vw), 0 100%);
+  }
 `;
 
 const Card = styled.div`
@@ -47,20 +48,36 @@ const Button = styled.button`
   }
 `;
 
+const MainDiv = styled.div`
+  background-color: white;
+  display: flex;
+  height: calc(1350px + 4.5vw);
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  clip-path: polygon(0 calc(100% - 1350px), 100% 0, 100% 100%, 0 100%);
+  @media screen and (min-width: 640px) {
+    height: calc(550px + 4.5vw);
+    clip-path: polygon(0 calc(100% - 550px), 100% 0, 100% 100%, 0 100%);
+  }
+`;
+
 const Bottom = () => {
   return (
     <div>
       <BottomLine1 />
       <div className=" flex justify-center">
-        <div className="h-[400px]  w-[90%]">
-          <div className="w-[720px] text-slate-200 flex flex-col ">
-            <RiDoubleQuotesL className="text-[72px] text-[#00b300] " />
-            <p className="text-[32px] mb-[30px] mt-[10px] ">
+        <div className="h-[500px]  w-[90%]">
+          <div className="w-full lg:w-[60%] text-slate-200 flex flex-col mt-[80px] ">
+            <RiDoubleQuotesL className="text-[56px] text-[#00b300] md:text-[72px] " />
+            <p className="text-[18px] mb-[30px] mt-[10px] sm:text-[24px] md:text-[32px] ">
               With each successful implementation comes more benefits for our
               community and more confidence in moving to the next Blackbaud
               product.
             </p>
-            <span className="text-[24px] font-semibold mb-[30px] ">
+            <span className="text-[16px] font-semibold mb-[30px] sm:text-[18px] md:text-[20px] ">
               Scott Blair, Director of Information Systems <br />
               GONZAGA COLLEGE HIGH SCHOOL
             </span>
@@ -71,10 +88,11 @@ const Bottom = () => {
         </div>
       </div>
 
-      <BottomLine2 />
-      <div className="bg-white h-[600px] flex flex-col items-center justify-center gap-[60px]">
-        <h1 className="text-[48px] text-slate-700">Solutions for Schools</h1>
-        <div className="flex gap-[100px]">
+      <MainDiv>
+        <h1 className="text-[28px] text-slate-700 md:text-[48px]">
+          Solutions for Schools
+        </h1>
+        <div className="flex flex-col gap-[5vw] md:flex-row  ">
           <Card>
             <h1 className="text-[24px] font-semibold text-white w-[200px] text-center">
               Enrollment Management
@@ -115,8 +133,9 @@ const Bottom = () => {
             </Button>
           </Card>
         </div>
-      </div>
-      <div className="w-full h-[300px] bg-[#003d4d] flex justify-center items-center">
+      </MainDiv>
+
+      {/* <div className="w-full h-[300px] bg-[#003d4d] flex justify-center items-center">
         <div className=" w-fit flex flex-col items-center">
           <h1 className="text-[32px] font-semibold text-white  text-center">
             Ready to learn more?
@@ -128,7 +147,7 @@ const Bottom = () => {
             Contact us <BsArrowRightShort className="text-[24px]" />
           </Button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

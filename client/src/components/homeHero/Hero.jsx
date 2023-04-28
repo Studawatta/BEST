@@ -3,9 +3,9 @@ import Top from './Top';
 import Middle from './Middle';
 import Bottom from './Bottom';
 
-const HomeHero = () => {
+const Hero = () => {
   return (
-    <div className="w-full">
+    <div>
       <Top />
       <Middle />
       <Bottom />
@@ -13,4 +13,4 @@ const HomeHero = () => {
   );
 };
 
-export default HomeHero;
+export default Hero;
