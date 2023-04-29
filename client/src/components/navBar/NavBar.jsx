@@ -24,17 +24,26 @@ const NavBar = () => {
           >
             <HiMenu className="text-[32px] " />
           </div>
+
+          {/* navigation bar left */}
+
           <div className="hidden xs:flex gap-[20px] sm:gap-[40px]  ">
             <NavLink to="/"> Home</NavLink>
             <NavLink to="/about">About</NavLink>
             <NavLink to="/contact">Contact</NavLink>
           </div>
+
+          {/* navigation bar right */}
+
           <div className="flex gap-[20px] sm:gap-[40px] ">
             <NavLink to="/login">Login</NavLink>
             <NavLink to="register">Register</NavLink>
           </div>
         </div>
       </div>
+
+      {/* dropdown */}
+
       {showDropdown ? (
         <div className="bg-black  text-white font-bold flex flex-col gap-[20px] w-fit p-4 absolute ">
           <NavLink to="/"> Home</NavLink>
