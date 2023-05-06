@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import Register from './Register';
 
 test('username,email, password inputs should be rendered', () => {
@@ -33,4 +33,13 @@ test('password input should be empty', () => {
   render(<Register />);
   const passwordInputEl = screen.getByPlaceholderText(/password/i);
   expect(passwordInputEl.value).toBe('');
+});
+
+test('username input should change', () => {
+  render(<Register />);
+
+  const usernameInputEl = screen.getByPlaceholderText(/username/i);
+  const testValue = 'test';
+  fireEvent.change(usernameInputEl, { target: { value: testValue } });
+  expect(usernameInputEl.value).toBe(testValue);
 });

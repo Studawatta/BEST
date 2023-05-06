@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Input = styled.input`
-  /* border: 2px solid #b5b3b3; */
   width: 100%;
   padding: 10px 30px;
   border-radius: 5px;
@@ -21,15 +22,44 @@ const Label = styled.span`
 `;
 
 const Register = () => {
+  const navigate = useNavigate();
+
+  const username = useRef();
+  const email = useRef();
+  const password = useRef();
   const {
     register,
     handleSubmit,
 
     formState: { errors },
   } = useForm();
-  // const onSubmit = (data) => {};
-  // const onSubmit = (e) => {
+
+  const onSubmit = async (data, e) => {
+    e.preventDefault();
+    console.log(data);
+    try {
+      await axios.post('/auth/register', data);
+      alert('successfull');
+      navigate('/login');
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // const handleClick = async (e) => {
   //   e.preventDefault();
+  //   const user = {
+  //     username: username.current.value,
+  //     email: email.current.value,
+  //     password: password.current.value,
+  //   };
+  //   try {
+  //     await axios.post('/auth/register', user);
+  //     alert('successfull');
+  //   } catch (error) {
+  //     console.log(error);
+  //     alert('Something went wrong!');
+  //   }
   // };
   return (
     <div className="w-full h-[100vh] bg-slate-200 flex items-center justify-center">
@@ -38,39 +68,40 @@ const Register = () => {
 
         <form
           className="mt-10 w-[60%] m-auto  flex flex-col gap-[20px]"
-          onSubmit={handleSubmit()}
+          onSubmit={handleSubmit(onSubmit)}
         >
           {/* usernameInput */}
 
-          <div className=" h-[105px]">
+          <div className="h-[105px]">
             <Label>Username : </Label>
             <Input
-              className={` border-2  ${
-                errors.userName ? ' border-red-500' : 'border-[#b5b3b3]'
+              className={` border-2   ${
+                errors.username ? ' border-red-500' : 'border-[#b5b3b3]'
               }`}
               placeholder="username"
-              id="userName"
-              {...register('userName', {
+              id="username"
+              ref={username}
+              {...register('username', {
                 required: true,
                 maxLength: 20,
                 minLength: 4,
                 pattern: /^[A-Za-z]+$/,
               })}
             />
-            {errors?.userName?.type === 'required' && (
+            {errors?.username?.type === 'required' && (
               <p className="text-red-500 text-[14px]">Required</p>
             )}
-            {errors.userName?.type === 'maxLength' && (
+            {errors.username?.type === 'maxLength' && (
               <p className="text-red-500 text-[14px]">
                 Username must less than 20 characters
               </p>
             )}
-            {errors.userName?.type === 'minLength' && (
+            {errors.username?.type === 'minLength' && (
               <p className="text-red-500 text-[14px]">
                 Username not long enough
               </p>
             )}
-            {errors?.userName?.type === 'pattern' && (
+            {errors?.username?.type === 'pattern' && (
               <p className="text-red-500 text-[14px]">
                 Alphebetical characters only
               </p>
@@ -87,6 +118,7 @@ const Register = () => {
               }`}
               placeholder="email"
               id="email"
+              ref={email}
               {...register('email', {
                 required: true,
                 pattern:
@@ -111,6 +143,7 @@ const Register = () => {
               }`}
               placeholder="password"
               id="password"
+              ref={password}
               {...register('password', {
                 required: true,
                 pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
