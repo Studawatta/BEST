@@ -39,28 +39,14 @@ const Register = () => {
     console.log(data);
     try {
       await axios.post('/auth/register', data);
-      alert('successfull');
+      alert('Successfully registered');
       navigate('/login');
     } catch (error) {
       console.log(error);
+      alert('Something went wrong!');
     }
   };
 
-  // const handleClick = async (e) => {
-  //   e.preventDefault();
-  //   const user = {
-  //     username: username.current.value,
-  //     email: email.current.value,
-  //     password: password.current.value,
-  //   };
-  //   try {
-  //     await axios.post('/auth/register', user);
-  //     alert('successfull');
-  //   } catch (error) {
-  //     console.log(error);
-  //     alert('Something went wrong!');
-  //   }
-  // };
   return (
     <div className="w-full h-[100vh] bg-slate-200 flex items-center justify-center">
       <div className="bg-white w-[100%] h-fit rounded-[10px] shadow-lg py-10 md:w-[60%] lg:w-[40%]">

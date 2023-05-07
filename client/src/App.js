@@ -4,6 +4,7 @@ import About from './pages/about/About';
 import Contact from './pages/contact/Contact';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
+import Dashboard from './pages/dashboard/Dashboard';
 
 function App() {
   return (
@@ -29,6 +30,10 @@ function App() {
           <Route
             path="/register"
             element={<Register />}
+          />
+          <Route
+            path="/userdash"
+            element={<Dashboard />}
           />
         </Routes>
       </Router>
