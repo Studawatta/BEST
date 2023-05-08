@@ -19,7 +19,7 @@ const Dashboard = () => {
       alert('Please log in');
       navigate('/login');
     }
-  });
+  }, [navigate]);
 
   const logout = (e) => {
     e.preventDefault();
@@ -33,6 +33,8 @@ const Dashboard = () => {
       Hello {name},<br /> I am user dashboard
       <br />
       <button onClick={logout}>Log out</button>
+      {/* leftBar */}
+      <div className="w-[300px] h-[100vh] border-r-2 border-[#ccc]"></div>
     </div>
   );
 };
