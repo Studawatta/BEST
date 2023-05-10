@@ -23,6 +23,14 @@ const DashSubHeader = (props) => {
   );
 };
 
+const DropDownContainer = () => {
+  return (
+    <div
+      className={`h-fit  flex-col gap-3 text-slate-500  border-l-[1px] border-blue-500 pl-6 flex`}
+    ></div>
+  );
+};
+
 const DropItem = (props) => {
   return (
     <div className="flex items-center gap-[25px] hover:text-blue-500 cursor-pointer">
@@ -57,8 +65,10 @@ const Dashboard = () => {
   //   navigate('/');
   // };
 
-  const [showDropdown, setShowDropdown] = useState('');
-
+  const [showClasses, setShowClasses] = useState(false);
+  const [showSubjects, setShowSubjects] = useState(false);
+  const [showStudents, setShowStudents] = useState(false);
+  console.log(showClasses);
   return (
     <div>
       {/* Hello {name},<br /> I am user dashboard
@@ -79,24 +89,50 @@ const Dashboard = () => {
 
           {/* dashboard subHeaders */}
 
-          <DashSubHeader
-            name="Classes"
-            icon={<TfiRulerPencil />}
-          />
-          <div className=" h-fit flex flex-col gap-3 text-slate-500  border-l-[1px] border-blue-500 pl-6 ">
+          {/* classes */}
+
+          <div onClick={() => setShowClasses(!showClasses)}>
+            <DashSubHeader
+              name="Classes"
+              icon={<TfiRulerPencil />}
+            />
+          </div>
+          {/* classes dropdown */}
+          <DropDownContainer>
             <DropItem name="All Classes" />
             <DropItem name="New Class" />
             <DropItem name="Edit OR Delete" />
+          </DropDownContainer>
+
+          {/* subjects */}
+
+          <div onClick={() => setShowSubjects(!showSubjects)}>
+            <DashSubHeader
+              name="Subjects"
+              icon={<HiOutlineBookOpen />}
+            />
           </div>
 
-          <DashSubHeader
-            name="Subjects"
-            icon={<HiOutlineBookOpen />}
-          />
-          <DashSubHeader
-            name="Students"
-            icon={<BsPerson />}
-          />
+          {/* subjects dropdown */}
+
+          <div
+            className={`h-fit  flex-col gap-3 text-slate-500  border-l-[1px] border-blue-500 pl-6 ${
+              showSubjects ? 'flex' : 'hidden'
+            }`}
+          >
+            <DropItem name="Classes with Subjects" />
+            <DropItem name="Assign Subjects" />
+          </div>
+
+          {/* students */}
+
+          <div onClick={() => setShowStudents(!showStudents)}>
+            <DashSubHeader
+              name="Students"
+              icon={<BsPerson />}
+            />
+          </div>
+
           <DashSubHeader
             name="Employees"
             icon={<TfiBriefcase />}
