@@ -1,8 +1,10 @@
-import axios from 'axios';
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import React from "react";
+import { useForm } from "react-hook-form";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import { login, reset } from "../../features/auth/authSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Input = styled.input`
   border: 2px solid #b5b3b3;
@@ -23,58 +25,59 @@ const Label = styled.span`
 `;
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
 
   const { register, handleSubmit } = useForm();
+
   const onSubmit = async (data, e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/auth/login', data);
-      const user = res.data.user;
-      if (user) {
-        localStorage.setItem('token', user);
-        alert('Login successful');
-        navigate('/userdash');
-      }
-      console.log(user);
+      // const res = await axios.post('/auth/login', data);
+      // const user = res.data.user;
+      // if (user) {
+      //   localStorage.setItem('token', user);
+      //   alert('Login successful');
+      //   navigate('/userdash');
+      // }
+      // console.log(user);
+      dispatch(login(data));
     } catch (error) {
       console.log(error);
-      alert('Something went wrong!');
+      alert("Something went wrong!");
     }
   };
   return (
-    <div className="w-full h-[100vh] bg-slate-200 flex items-center justify-center">
-      <div className="bg-white w-[100%] h-fit rounded-[10px] shadow-lg py-10 md:w-[60%] lg:w-[40%]">
-        <h1 className="text-[40px] font-semibold  text-center">Log In</h1>
+    <div className="flex h-[100vh] w-full items-center justify-center bg-slate-200">
+      <div className="h-fit w-[100%] rounded-[10px] bg-white py-10 shadow-lg md:w-[60%] lg:w-[40%]">
+        <h1 className="text-center text-[40px]  font-semibold">Log In</h1>
 
         <form
-          className="mt-10 w-[60%] m-auto  flex flex-col gap-[20px]"
+          className="m-auto mt-10 flex  w-[60%] flex-col gap-[20px]"
           onSubmit={handleSubmit(onSubmit)}
         >
           {/* usernameInput */}
 
           <div className="h-[105px]">
             <Label>Username : </Label>
-            <Input
-              placeholder="username"
-              {...register('username')}
-            />
+            <Input placeholder="username" {...register("username")} />
           </div>
 
           {/* passwordInput */}
 
           <div className="h-[105px]">
             <Label>Password : </Label>
-            <Input
-              placeholder="password"
-              {...register('password')}
-            />
+            <Input placeholder="password" {...register("password")} />
           </div>
 
           {/* submitButton */}
 
           <button
             type="submit"
-            className="bg-blue-500 w-fit py-2 px-12 border-2 border-blue-500 rounded-md font-bold text-white hover:bg-white hover:text-blue-500 m-auto"
+            className="m-auto w-fit rounded-md border-2 border-blue-500 bg-blue-500 px-12 py-2 font-bold text-white hover:bg-white hover:text-blue-500"
           >
             Log In
           </button>
