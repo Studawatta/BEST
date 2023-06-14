@@ -1,16 +1,5 @@
-import React from 'react';
-import Top from './Top';
-import Middle from './Middle';
-import Bottom from './Bottom';
+import HomeTop from "./homeTop";
+import HomeMiddle from "./homeMiddle";
+import HomeBottom from "./homeBottom";
 
-const Hero = () => {
-  return (
-    <div>
-      <Top />
-      <Middle />
-      <Bottom />
-    </div>
-  );
-};
-
-export default Hero;
+export { HomeTop, HomeMiddle, HomeBottom };

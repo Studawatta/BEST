@@ -1,8 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import {school1,school2,school3,student_home} from '../../assets';
-
+import { school1, school2, school3, student_home } from "../../../assets";
 
 const MiddleLine1 = styled.div`
   height: 15vw;
@@ -46,35 +45,35 @@ const MainDiv = styled.div`
   clip-path: polygon(0 calc(100% - 380px), 100% 0, 100% 100%, 0 100%);
 `;
 
-const Middle = () => {
+const HomeMiddle = () => {
   return (
     <div>
       <MiddleLine1 />
       <MainDiv>
-        <div className=" w-fit  flex flex-col items-center justify-center mt-[100px] ">
-          <span className="text-[16px] md:text-[20px] lg:text-[24px] text-slate-600">
+        <div className=" mt-[100px]  flex w-fit flex-col items-center justify-center ">
+          <span className="text-[16px] text-slate-600 md:text-[20px] lg:text-[24px]">
             High-impact K–12 schools across the world choose Blackbaud to drive
             success.
           </span>
-          <span className="text-[16px] md:text-[20px] lg:text-[24px] text-slate-600">
+          <span className="text-[16px] text-slate-600 md:text-[20px] lg:text-[24px]">
             Read these stories and more in our customer story showcase.
           </span>
 
-          <div className="flex  w-[60%] justify-between mt-[30px] gap-[20%]  ">
+          <div className="mt-[30px]  flex w-[60%] justify-between gap-[20%]  ">
             <img
               src={school1}
               alt=""
-              className="w-[40px] h-[40px] md:w-[100px] md:h-[100px] xs:w-[60px] xs:h-[60px] cursor-pointer"
+              className="h-[40px] w-[40px] cursor-pointer xs:h-[60px] xs:w-[60px] md:h-[100px] md:w-[100px]"
             />
             <img
               src={school2}
               alt=""
-              className="w-[40px] h-[40px] md:w-[100px] md:h-[100px] xs:w-[60px] xs:h-[60px] cursor-pointer"
+              className="h-[40px] w-[40px] cursor-pointer xs:h-[60px] xs:w-[60px] md:h-[100px] md:w-[100px]"
             />
             <img
               src={school3}
               alt=""
-              className="w-[40px] h-[40px] md:w-[100px] md:h-[100px] xs:w-[60px] xs:h-[60px] cursor-pointer"
+              className="h-[40px] w-[40px] cursor-pointer xs:h-[60px] xs:w-[60px] md:h-[100px] md:w-[100px]"
             />
           </div>
         </div>
@@ -82,22 +81,19 @@ const Middle = () => {
       </MainDiv>
       {/* <div className="h-10 w-full bg-red-400"></div> */}
 
-      <div className="bg-white  flex mt-[-1px] lg:h-[600px] xl:h-[700px]">
-        <div className=" bg-black w-[40%] overflow-hidden hidden lg:block">
-          <img
-            src={student_home}
-            alt=""
-          />
+      <div className="mt-[-1px]  flex bg-white lg:h-[600px] xl:h-[700px]">
+        <div className=" hidden w-[40%] overflow-hidden bg-black lg:block">
+          <img src={student_home} alt="student_home" />
         </div>
 
-        <div className="  px-[5px] py-[30px] lg:px-[20px] lg:py-0 xl:py-[50px] xl:px-[100px] lg:w-[60%]  ">
+        <div className="  px-[5px] py-[30px] lg:w-[60%] lg:px-[20px] lg:py-0 xl:px-[100px] xl:py-[50px]  ">
           <div className="w-full">
-            <span className="text-[22px] w-[200px] font-thin lg:text-[32px]  ">
+            <span className="w-[200px] text-[22px] font-thin lg:text-[32px]  ">
               Digital Transformation for the Educational Experience
-              <hr className="border-4 border-green-500 rounded-md " />
+              <hr className="rounded-md border-4 border-green-500 " />
             </span>
           </div>
-          <p className="text-[14px] mt-[20px] text-slate-700 lg:text-[18px] xl:text-[20px]">
+          <p className="mt-[20px] text-[14px] text-slate-700 lg:text-[18px] xl:text-[20px]">
             Connect your whole school and drive digital transformation with BEST
             student management solutions for private and parochial schools.
             Power efficiency with truly seamless data flow from enrollment
@@ -112,7 +108,7 @@ const Middle = () => {
             </span>
             saves time with features such as self-scheduling and online
             committee review, and the customizable admission checklist enables
-            parents and admins to quickly review an application’s status{' '}
+            parents and admins to quickly review an application’s status{" "}
           </p>
           <p className="mt-6 text-[14px] text-slate-700 lg:text-[16px] xl:text-[18px]">
             <span className="text-[16px] text-purple-800 lg:text-[18px] xl:text-[20px]">
@@ -136,4 +132,4 @@ const Middle = () => {
   );
 };
 
-export default Middle;
+export default HomeMiddle;

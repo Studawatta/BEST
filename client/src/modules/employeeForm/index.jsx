@@ -1,7 +1,6 @@
-import React from "react";
-
 const EmployeeForm = () => {
   const inputStyle = "border-2 border-slate-400 p-1";
+
   return (
     <div className=" w-4/5 border-2 border-purple-500 px-16">
       {/* HEADER */}

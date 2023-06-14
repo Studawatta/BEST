@@ -1,7 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import { RiDoubleQuotesL } from 'react-icons/ri';
-import { BsArrowRightShort } from 'react-icons/bs';
+import styled from "styled-components";
+import { RiDoubleQuotesL } from "react-icons/ri";
+import { BsArrowRightShort } from "react-icons/bs";
 
 const BottomLine1 = styled.div`
   height: 15vw;
@@ -21,33 +20,6 @@ const BottomLine1 = styled.div`
   }
 `;
 
-const Card = styled.div`
-  width: 250px;
-  height: 400px;
-  background-color: #004d4d;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  align-items: center;
-  padding: 20px 0;
-`;
-const Button = styled.button`
-  width: fit-content;
-  background-color: #9900cc;
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: 2px solid #e699ff;
-  font-weight: bold;
-  color: white;
-  display: flex;
-  gap: 5px;
-  align-items: center;
-  &:hover {
-    background-color: white;
-    color: #9900cc;
-  }
-`;
-
 const MainDiv = styled.div`
   background-color: white;
   display: flex;
@@ -64,92 +36,97 @@ const MainDiv = styled.div`
   }
 `;
 
-const Bottom = () => {
+const HomeBottom = () => {
+  const cardStyle =
+    "flex h-fit w-64 flex-col items-center gap-7 bg-[#004d4d] px-5 py-7";
+
+  const buttonStyle = `flex w-fit items-center gap-1 rounded-md border-2 border-[#e699ff]
+   bg-[#9900cc] px-1 py-2 font-bold text-white hover:bg-white hover:text-[#9900cc]`;
+
   return (
     <div>
       <BottomLine1 />
+
+      {/* TOP CONTAINER */}
+
       <div className=" flex justify-center">
         <div className="h-[500px]  w-[90%]">
-          <div className="w-full lg:w-[60%] text-slate-200 flex flex-col mt-[80px] ">
+          <div className="mt-[80px] flex w-full flex-col text-slate-200 lg:w-[60%] ">
             <RiDoubleQuotesL className="text-[56px] text-[#00b300] md:text-[72px] " />
-            <p className="text-[18px] mb-[30px] mt-[10px] sm:text-[24px] md:text-[32px] ">
+            <p className="mb-[30px] mt-[10px] text-[18px] sm:text-[24px] md:text-[32px] ">
               With each successful implementation comes more benefits for our
               community and more confidence in moving to the next Blackbaud
               product.
             </p>
-            <span className="text-[16px] font-semibold mb-[30px] sm:text-[18px] md:text-[20px] ">
+            <span className="mb-[30px] text-[16px] font-semibold sm:text-[18px] md:text-[20px] ">
               Scott Blair, Director of Information Systems <br />
               GONZAGA COLLEGE HIGH SCHOOL
             </span>
-            <Button>
+            <button className={buttonStyle}>
               Read More <BsArrowRightShort className="text-[24px]" />
-            </Button>
+            </button>
           </div>
         </div>
       </div>
+
+      {/* BOTTOM CONTAINER */}
 
       <MainDiv>
         <h1 className="text-[28px] text-slate-700 md:text-[48px]">
           Solutions for Schools
         </h1>
+
+        {/* CARD CONTAINER */}
+
         <div className="flex flex-col gap-[5vw] md:flex-row  ">
-          <Card>
-            <h1 className="text-[24px] font-semibold text-white w-[200px] text-center">
+          {/* CARD #1 */}
+          <div className={cardStyle}>
+            <h1 className="w-[200px] text-center text-[24px] font-semibold text-white">
               Enrollment Management
             </h1>
-            <p className="text-[18px] w-[200px] text-white text-center">
+            <p className="w-[200px] text-center text-[18px] text-white">
               Power admissons with the online entrollment solution that
               impressed parents and streamlines the application and
               re-enrollment processes.
             </p>
-            <Button>
+            <button className={buttonStyle}>
               Learn More <BsArrowRightShort className="text-[24px]" />
-            </Button>
-          </Card>
-          <Card>
-            <h1 className="text-[24px] font-semibold text-white w-[200px] text-center">
+            </button>
+          </div>
+
+          {/* CARD #2 */}
+          <div className={cardStyle}>
+            <h1 className="w-[200px] text-center text-[24px] font-semibold text-white">
               Enrollment Management
             </h1>
-            <p className="text-[18px] w-[200px] text-white text-center">
+            <p className="w-[200px] text-center text-[18px] text-white">
               Power admissons with the online entrollment solution that
               impressed parents and streamlines the application and
               re-enrollment processes.
             </p>
-            <Button>
+            <button className={buttonStyle}>
               Learn More <BsArrowRightShort className="text-[24px]" />
-            </Button>
-          </Card>
-          <Card>
-            <h1 className="text-[24px] font-semibold text-white w-[200px] text-center">
+            </button>
+          </div>
+
+          {/* CARD #3 */}
+          <div className={cardStyle}>
+            <h1 className="w-[200px] text-center text-[24px] font-semibold text-white">
               Enrollment Management
             </h1>
-            <p className="text-[18px] w-[200px] text-white text-center">
+            <p className="w-[200px] text-center text-[18px] text-white">
               Power admissons with the online entrollment solution that
               impressed parents and streamlines the application and
               re-enrollment processes.
             </p>
-            <Button>
+            <button className={buttonStyle}>
               Learn More <BsArrowRightShort className="text-[24px]" />
-            </Button>
-          </Card>
+            </button>
+          </div>
         </div>
       </MainDiv>
-
-      {/* <div className="w-full h-[300px] bg-[#003d4d] flex justify-center items-center">
-        <div className=" w-fit flex flex-col items-center">
-          <h1 className="text-[32px] font-semibold text-white  text-center">
-            Ready to learn more?
-          </h1>
-          <span className="text-[20px] text-white mb-[40px] mt-[10px]">
-            Contact us today to learn more about the BEST
-          </span>
-          <Button>
-            Contact us <BsArrowRightShort className="text-[24px]" />
-          </Button>
-        </div>
-      </div> */}
     </div>
   );
 };
 
-export default Bottom;
+export default HomeBottom;

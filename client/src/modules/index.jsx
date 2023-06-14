@@ -1,4 +1,3 @@
-import Hero from "./homeHero";
 import EmployeeForm from "./employeeForm";
-
-export { Hero, EmployeeForm };
+import { HomeTop, HomeMiddle, HomeBottom } from "./homeHero";
+export { EmployeeForm, HomeTop, HomeMiddle, HomeBottom };

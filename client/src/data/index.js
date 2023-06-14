@@ -1,7 +1,6 @@
-import { TfiRulerPencil } from "react-icons/tfi";
-import { HiOutlineBookOpen } from "react-icons/hi2";
 import { BsPerson } from "react-icons/bs";
-import { TfiBriefcase } from "react-icons/tfi";
+import { HiOutlineBookOpen } from "react-icons/hi2";
+import { TfiBriefcase, TfiRulerPencil } from "react-icons/tfi";
 
 export const Admin_Sidebar_Items = [
   {

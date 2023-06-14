@@ -1,10 +1,10 @@
-import axios from "axios";
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
-import { login, reset } from "../../features/auth/authSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { login, reset } from "../../features/auth/authSlice";
+import { Spinner } from "../../components";
 
 const Input = styled.input`
   border: 2px solid #b5b3b3;
@@ -31,25 +31,26 @@ const Login = () => {
     (state) => state.auth
   );
 
+  useEffect(() => {
+    if (isError) {
+      alert(message);
+    }
+    if (isSuccess || user) {
+      // alert("logged in");
+      navigate("/");
+    }
+    dispatch(reset());
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
+
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data, e) => {
     e.preventDefault();
-    try {
-      // const res = await axios.post('/auth/login', data);
-      // const user = res.data.user;
-      // if (user) {
-      //   localStorage.setItem('token', user);
-      //   alert('Login successful');
-      //   navigate('/userdash');
-      // }
-      // console.log(user);
-      dispatch(login(data));
-    } catch (error) {
-      console.log(error);
-      alert("Something went wrong!");
-    }
+    dispatch(login(data));
   };
+  if (isLoading) {
+    return <Spinner />;
+  }
   return (
     <div className="flex h-[100vh] w-full items-center justify-center bg-slate-200">
       <div className="h-fit w-[100%] rounded-[10px] bg-white py-10 shadow-lg md:w-[60%] lg:w-[40%]">

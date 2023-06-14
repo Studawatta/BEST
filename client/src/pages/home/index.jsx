@@ -1,13 +1,14 @@
 import { Footer, NavBar } from "../../components";
-import { Hero } from "../../modules";
-
+import { HomeBottom, HomeMiddle, HomeTop } from "../../modules";
 
 const Home = () => {
   return (
-    <div className=" bg-[url('./assets/imges/homebg.jpg')]  w-full  bg-no-repeat bg-fixed bg-cover  ">
-     <NavBar/>
-     <Hero/>
-     <Footer/>
+    <div className=" w-full  bg-[url('./assets/imges/homebg.jpg')]  bg-cover bg-fixed bg-no-repeat  ">
+      <NavBar />
+      <HomeTop />
+      <HomeMiddle />
+      <HomeBottom />
+      <Footer />
     </div>
   );
 };

@@ -11,18 +11,25 @@ const register = async (userData) => {
 //LOGIN USER
 const login = async (userData) => {
   const response = await axios.post(API_URL + "login", userData);
+  console.log("date", response.data);
+
   const user = response.data.user;
   if (user) {
     localStorage.setItem("token", user);
-    console.log(`token = ${user}`);
   }
-
   return response.data;
+};
+
+//LOGOUT USER
+const logout = () => {
+  localStorage.removeItem("token");
+  console.log("effected");
 };
 
 const authService = {
   register,
   login,
+  logout,
 };
 
 export default authService;
