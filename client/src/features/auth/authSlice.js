@@ -1,9 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import authService from "./authService";
-import jwt_decode from "jwt-decode";
+// const jwt = require("jsonwebtoken");
 
 const user = localStorage.getItem("token");
 // const user = localStorage.getItem("token");
+// const user = jwt.verify(token, "sandun123");
 
 const initialState = {
   user: user ? user : null,
